@@ -36,6 +36,8 @@ const singelPhone = phone => {
         </div>
         `;
         main.appendChild(div);
+        loadingSpinner(false)
+
         // console.log(phone.phone_name)
     });
 }
@@ -43,7 +45,16 @@ const singelPhone = phone => {
 
 const searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', function(){
+    loadingSpinner(true)
     const searchValue = document.getElementById('searchValue').value;
     mobiles(searchValue)
 })
 
+const loadingSpinner = spinner =>{
+    const spinnerloder = document.getElementById('spinner');
+    if(spinner){
+        spinnerloder.classList.remove('d-none');
+    }else{
+        spinnerloder.classList.add('d-none');
+    }
+}
