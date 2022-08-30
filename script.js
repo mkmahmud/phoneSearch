@@ -84,3 +84,78 @@ const displayDetails = async phone => {
 
 
 mobiles('apple')
+
+
+// For loop
+
+const oddNumber = [1,3,5,7,9,11,13,15,17,19];
+
+// make even Number by for loop
+
+let newArray = []
+
+for(number of oddNumber){
+    number = number +1;
+    newArray.push(number);
+}
+// console.log(newArray)
+
+// make even Number by for Map
+
+const mapOddNumber = oddNumber.map(num => num * 2)
+// console.log(mapOddNumber)
+
+
+const array = { hobbies: ["dancing", "singing", "acting"] };
+// console.log(JSON.stringify(array));
+
+const person = [
+    {
+      name: "rahim",
+      age: 22,
+      friends: ["rahim,karim,jabbar"],
+    },
+    {
+      name: "rahim2",
+      age: 22,
+      friends: ["rahim,karim,jabbar"],
+    },
+    {
+    name: "rahim3",
+    age: 22,
+    friends: ["rahim,karim,jabbar"],
+  },
+  ];
+
+//   console.log(person.slice(1,2))
+
+const dreamGirl = [
+    {
+      sokina: {
+        name: "bbu",
+        height: "5.4",
+        family: [{ father: "rock", mother: "shila", sister: "chinki" }],
+        age: undefined,
+        contactInfo: [
+          {
+            facebook: {
+              link: "https://www.facebook.com/",
+              followers: "12545",
+              status: "single",
+              friendsList: [{ name: "rofik" }, undefined],
+            },
+          },
+          { instagram: "https://www.instagram.com/" },
+        ],
+      },
+    },
+  ];
+
+//   console.log(dreamGirl[0].sokina.contactInfo[1].instagram)
+const phones = [
+    { name: "sony", price: 500 },
+    { name: "apple", price: 700 },
+    { name: "sony", price: 700 },
+  ];
+
+//   consol.log(phones.find((phone) => phone.price === 500))
