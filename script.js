@@ -6,8 +6,10 @@ const mobiles = async(value) => {
 }
 
 const main = document.querySelector('.main');
+const totalPhones = document.getElementById('totalPhones');
 
 const singelPhone = phone => {
+    totalPhones.innerText = phone.length;
     main.textContent = '';
     phone = phone.slice(0,10);
     // alert
@@ -31,7 +33,9 @@ const singelPhone = phone => {
              <h5 class="card-title">${phone_name}</h5>
              <b>${brand}</b>
              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="#" class="btn btn-primary">Go somewhere</a>
+             <button type="button" onclick="displayDetails('${phone.slug}')" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Launch demo modal
+            </button>
           </div>
         </div>
         `;
@@ -58,3 +62,25 @@ const loadingSpinner = spinner =>{
         spinnerloder.classList.add('d-none');
     }
 }
+
+const searchValue = document.getElementById('searchValue');
+searchValue.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+        const searchEnterValue = document.getElementById('searchValue').value;
+        mobiles(searchEnterValue)
+    }
+})
+
+
+const displayDetails = async phone => {
+    const url = `https://openapi.programming-hero.com/api/phone/${phone}`; 
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const exampleModalLongTitle = document.getElementById('exampleModalLongTitle');
+    exampleModalLongTitle.innerText = data.data.name;
+    console.log(data);
+} 
+
+
+mobiles('apple')
