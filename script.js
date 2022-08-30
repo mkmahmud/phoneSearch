@@ -9,6 +9,15 @@ const main = document.querySelector('.main');
 
 const singelPhone = phone => {
     main.textContent = '';
+    phone = phone.slice(0,10);
+    // alert
+        const noPhone = document.querySelector('.noPhone');
+    if(phone.length === 0){
+        noPhone.classList.remove('d-none')
+    }else{
+        noPhone.classList.add('d-none')
+    }
+    
     phone.forEach(phone => {
         const div = document.createElement('div');
         const addClass = div.classList.add('col');
